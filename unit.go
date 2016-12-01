@@ -141,7 +141,7 @@ func (a Angle) HourAngle() HourAngle { return HourAngle(a) }
 
 // RA constructs an RA value corresponding to angle a.
 //
-// As usual for RAs, the value is wrapped to the range [0,24h).
+// As usual for right ascension, the value is wrapped to the range [0,24h).
 func (a Angle) RA() RA { return RAFromRad(a.Rad()) }
 
 // Time constructs a Time value where one circle of Angle corresponds to
@@ -156,7 +156,7 @@ func (a Angle) Mul(f float64) Angle { return a * Angle(f) }
 // Div returns the scalar quotient a/d
 func (a Angle) Div(d float64) Angle { return a / Angle(d) }
 
-// Mod1 returns angle a wrapped to 1 circle.
+// Mod1 returns Angle a wrapped to 1 circle.
 func (a Angle) Mod1() Angle { return Angle(PMod(a.Rad(), 2*math.Pi)) }
 
 // Sin returns the trigonometric sine of a.

@@ -2,6 +2,7 @@ package unit_test
 
 import (
 	"fmt"
+	"math"
 
 	"github.com/soniakeys/sexagesimal"
 	"github.com/soniakeys/unit"
@@ -41,24 +42,30 @@ func ExampleNewAngle() {
 }
 
 func ExampleAngle_Deg() {
-	a := unit.NewAngle(' ', 3, 30, 0)
+	a := unit.Angle(math.Pi / 2)
 	fmt.Println(a.Deg())
 	// Output:
-	// 3.5
+	// 90
 }
+
 func ExampleAngle_Rad() {
-	a := unit.NewAngle(' ', 180, 0, 0)
-	fmt.Println(a.Rad())
+	a := unit.NewAngle(' ', 180, 0, 0) // conversion to radians happens here
+	fmt.Println(a.Rad())               // no cost to access radians here
 	// Output:
 	// 3.141592653589793
 }
 
 func ExampleNewRA() {
-	a := unit.NewRA(9, 14, 55.8)
-	fmt.Println(sexa.FmtRA(a))
+	a := unit.NewRA(9, 14, 55.8) // converts to radians
+	fmt.Println(a)               // radians, native representation
+	fmt.Println(a.Hour())        // hours, just scaled from radians
+	fmt.Println(sexa.FmtRA(a))   // sexagesimal
 	// Output:
+	// 2.4213389045230334
+	// 9.248833333333334
 	// 9ʰ14ᵐ56ˢ
 }
+
 func ExampleNewTime() {
 	t := unit.NewTime('-', 12, 34, 45.6)
 	fmt.Println(sexa.FmtTime(t))
