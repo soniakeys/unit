@@ -1,3 +1,5 @@
+// Public domain
+
 package unit_test
 
 import (

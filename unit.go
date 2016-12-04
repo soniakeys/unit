@@ -1,5 +1,4 @@
-// Copyright 2016 Sonia Keys
-// License MIT: http://www.opensource.org/licenses/MIT
+// Public domain
 
 // Unit defines some types used in astronomy, and heavily used by the packages
 // in github.com/soniakeys/meeus.  Four types are currently defined, Angle,
@@ -99,7 +98,7 @@ func AngleFromMin(m float64) Angle {
 	return Angle(m / 60 / 180 * math.Pi)
 }
 
-// AngleFromMin constructs an Angle value from a value representing angular
+// AngleFromSec constructs an Angle value from a value representing angular
 // seconds where there are 60 seconds to a minute, 60 minutes to a degree,
 // and 360 degrees to a circle.
 func AngleFromSec(s float64) Angle {
@@ -394,14 +393,14 @@ func TimeFromHour(h float64) Time {
 	return Time(h * 3600)
 }
 
-// TimeFromHour constructs a Time value from a value representing minutes
+// TimeFromMin constructs a Time value from a value representing minutes
 // of time.
 func TimeFromMin(m float64) Time {
 	// 60 sec in a min
 	return Time(m * 60)
 }
 
-// TimeFromHour constructs a Time value from radians where 2 pi radians
+// TimeFromRad constructs a Time value from radians where 2 pi radians
 // corresponds to one day.
 func TimeFromRad(rad float64) Time {
 	// 3600 sec in an hour, 12 hours or pi radians in a half-day
