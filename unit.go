@@ -56,13 +56,13 @@ func FromSexaSec(neg byte, d, m int, s float64) float64 {
 	return s
 }
 
-// PMod returns a positive floating-point x mod y.
+// PMod returns a positive floating-point x mod y for a positive y.
 //
 // Argument x can be positive or negative, but y should be positive.
+// With this restriction on y, PMod returns a value in the range [0,y).
 //
-// For a positive argument y, PMod returns a value in the range [0,y).
-//
-// The result may not be useful if y is negative.
+// The method is intended only for positive y.  If y is negative, the result
+// is not particularly useful.
 func PMod(x, y float64) float64 {
 	r := math.Mod(x, y)
 	if r < 0 {
