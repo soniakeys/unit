@@ -1,4 +1,4 @@
-// Public domain
+// License: MIT
 
 // Unit defines some types used in astronomy, and heavily used by the packages
 // in github.com/soniakeys/meeus.  Four types are currently defined, Angle,
