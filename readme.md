@@ -24,35 +24,17 @@ The tests also require the sexagesimal package, so use the -t option to prompt
 
     go get -t github.com/soniakeys/unit
 
-### Git clone
+### Vgo
 
-Alternatively, you can clone the repository into an appropriate place under
-your GOPATH.  To clone into the same place as `go get` for example, assuming
-the default GOPATH of ~/go, you would cd to `~/go/src/github.com/soniakeys`
-before running the clone command.
+Experimentally, you can try [vgo](https://research.swtch.com/vgo).
 
-    cd <somewhere under GOPATH>
-    git clone https://github.com/soniakeys/unit
+To run package tests, clone the repository -- anywhere! it doesn't have to
+be under GOPATH -- and from the cloned directory run
 
-Again, to run tests, you will need the sexagesimal package.  You can use
-`go get` or `git clone` as you prefer.
+    vgo test
 
-### Dep
-
-You can also use dep (https://golang.github.io/dep/) to vendor the sexagesimal
-package.  If you do this then the sexagesimal package does not otherwise need
-to be installed.  That is, you don't need the `-t` on `go get` and you don't
-need to `git clone` sexagesimal.
-
-To use dep, first read about dep on the website linked above and install it.
-Then install `unit` with either `go get` or `git clone`.  Finally, from the
-installed `unit` directory, type
-
-    dep ensure
-
-This will "vendor" the sexagesimal package, installing it under the `vendor`
-subdirectory and also installing a specific version of sexagesimal known to
-work with the version of unit that you just installed.
+Vgo will fetch the sexagesimal test dependency as needed and run the unit
+package tests.
 
 ### Or don't install it
 
